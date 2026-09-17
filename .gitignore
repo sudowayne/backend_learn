@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# TypeScript / Production build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables (including nested ones like src/.env)
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Database & Prisma
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# IDEs and Editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# AI / IDE assistant directories
+.agents/
+.claude/
+.windsurf/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+/src/generated/prisma

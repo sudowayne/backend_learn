@@ -1,0 +1,51 @@
+datasource db {
+    provider = "postgresql"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum Role {
+    ADMIN
+    TEACHER
+    STUDENT
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    email String @unique
+    passwordHash String
+    role Role @default(STUDENT)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    studentProfile Student?   
+    @@map("users")
+}
+
+enum StudentStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+model Student{
+  id Int @id @default(autoincrement())
+  userId Int? @unique
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  name String
+  age  Int
+  email String?
+  status StudentStatus @default(ACTIVE)
+  course String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  
+  @@index([status])
+  @@index([course])
+  @@index([name])
+  @@index([createdAt])
+  @@map("students")
+}
+
